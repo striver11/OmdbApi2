@@ -26,7 +26,7 @@ const OmdbApi = () => {
       .then((res) => setState(res.data))
       .catch((error) => {
         console.error("Error fetching data:", error);
-        setState([]); // Handle error by setting state to an empty array
+        setState([]); //here i am Handling error by setting state to an empty array
       });
   }, [newstate]); // Include newstate.name in the dependency array
 
@@ -37,13 +37,13 @@ const OmdbApi = () => {
       <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin:'20px'}}>
       <div class="input-group mb-1" style={{width:"500px"}}>
   <input name="name" type="text" className="form-control" placeholder="Enter Movie name" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={handleChange}/>
-  <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+  <button onSubmit={handleChange} className="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
 </div>
 </div>
 </form>
       
       <h1 className="text-center py-3">Movies</h1>
-     {/* ... Rest of your component ... */}
+   
 <div style={{ display: "grid", gridTemplateColumns: "auto auto auto auto auto ", rowGap: "20px" }}>
   {state === null ? (
     <p>Loading...</p>
@@ -63,7 +63,7 @@ const OmdbApi = () => {
     ))
   )}
 </div>
-{/* ... Rest of your component ... */}
+
 
     </>
   );
